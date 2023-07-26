@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "D:\\Mr Jweller\\src\\logs\\.f46e659dcb9086ca601aeacf201726ded4b70ea3-audit.json",
+    "files": [
+        {
+            "date": 1690303935699,
+            "name": "D:\\Mr Jweller\\src\\logs\\2023-07-25.log",
+            "hash": "baa33176bbc0ba487f886e5bb351ebb559ea17ff67e6b46b32ca7734b8af3aa1"
+        },
+        {
+            "date": 1690388629058,
+            "name": "D:\\Mr Jweller\\src\\logs\\2023-07-26.log",
+            "hash": "33bfab15b4ddbc4b1b5e0097d9db924d348664ff33bf4d89076f2ff22e8f4e1c"
+        }
+    ],
+    "hashType": "sha256"
+}

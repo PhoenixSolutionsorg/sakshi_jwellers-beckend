@@ -1,5 +1,4 @@
 import bcrypt from 'bcryptjs';
-import models from '../models';
 import user from "../models/user"
 import jwt from '../services/jwt';
 import logger from '../services/logger';
@@ -48,7 +47,7 @@ export default {
                     password: isUser?.password
                 }
                 const genratedToken = await jwt.createToken(payload);
-                const signIn = await user.update({ where: { email: isUser?.email } }, { token: genratedToken });
+                const signIn = await user.updateOne({ email: isUser?.email }, {$set:{ token: genratedToken }});
                 // {isUser?.token : genratedToken}
                 // isUser.password : undefined;
                 return isUser;
@@ -66,6 +65,15 @@ export default {
             return await bcrypt.hash(password, salt);
         } catch (error) {
             return error;
+        }
+    },
+    async signOut(email){
+        try{
+            const result = await user.updateOne({email},{$set :{token : null}});
+            return result?.modifiedCount;
+        }catch(error){
+            return error;
+
         }
     }
 }

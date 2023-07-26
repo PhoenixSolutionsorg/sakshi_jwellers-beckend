@@ -1,9 +1,12 @@
+import path from 'path';
 import dotenv from 'dotenv';
+
 dotenv.config();
 export default {
     database : {
-        dbURL : process.env.MONGODB_URL
+        dbURL : process.env.MONGODB_URL,
     },
-    jwtSecret : process.env.JWT_SECRET,
-    jwtExpiry : process.env.JWT_EXPIRY,
+    app : {
+        mediaStorage : 'local'
+    }
 }

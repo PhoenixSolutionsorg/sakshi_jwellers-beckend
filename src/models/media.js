@@ -5,11 +5,6 @@ const mediaSchema = new mongoose.Schema({
         required : true,
         trim : true
     },
-    baseUrl : {
-        type : String,
-        required : true,
-        trim : true
-    },
     basePath : {
         type : String,
         required : true,
@@ -24,7 +19,9 @@ const mediaSchema = new mongoose.Schema({
         type : String,
         required : true,
         trim : true
-    }
+    },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now },
 });
 const Media = mongoose.model("Media",mediaSchema);
 export default Media;

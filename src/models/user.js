@@ -47,7 +47,9 @@
         token : {
             type : String,
             trim : true
-        }
+        },
+        createdAt: { type: Date, default: Date.now },
+        updatedAt: { type: Date, default: Date.now },
     });
     userSchema.plugin(uniqueValidator);
     const User = mongoose.model('user',userSchema);

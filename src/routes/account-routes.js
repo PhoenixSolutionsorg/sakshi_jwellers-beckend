@@ -15,4 +15,8 @@ router.post('/signIn',
     // validateMiddleware({schema:accountValidator.userProfileSchema}),
     accountControllers.signIn
 )
+router.post('/signOut',
+    // accountMiddleware.checkUser,
+    accountControllers.signOut
+)
 export default router

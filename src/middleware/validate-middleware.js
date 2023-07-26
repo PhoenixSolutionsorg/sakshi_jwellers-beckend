@@ -5,11 +5,12 @@ const validateRequest = (option) => async(request,response,next)=>{
             ...request.body,
             ...request.params,
             ...request.query
+
         });
         next();
     }catch(error){
         const errors = error;
-        if(errors.iswJoi){
+        if(errors.isJoi){
             error.details.forEach((errorData)=>{
                 const errorObject = {
                     message : 'Ohhh something went wrong...!',

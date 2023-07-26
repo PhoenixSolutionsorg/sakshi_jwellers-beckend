@@ -6,7 +6,9 @@ const metalSchema = new mongoose.Schema({
         required : true,
         trim : true,
         unique : true
-    }
+    },    
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
 });
 metalSchema.plugin(uniqueValidator);
 const metal = mongoose.model('metal',metalSchema);

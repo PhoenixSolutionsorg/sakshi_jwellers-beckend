@@ -6,14 +6,9 @@
     "auditLog": "D:\\Mr Jweller\\src\\logs\\.f46e659dcb9086ca601aeacf201726ded4b70ea3-audit.json",
     "files": [
         {
-            "date": 1690303935699,
-            "name": "D:\\Mr Jweller\\src\\logs\\2023-07-25.log",
-            "hash": "baa33176bbc0ba487f886e5bb351ebb559ea17ff67e6b46b32ca7734b8af3aa1"
-        },
-        {
-            "date": 1690388629058,
-            "name": "D:\\Mr Jweller\\src\\logs\\2023-07-26.log",
-            "hash": "33bfab15b4ddbc4b1b5e0097d9db924d348664ff33bf4d89076f2ff22e8f4e1c"
+            "date": 1690482446236,
+            "name": "D:\\Mr Jweller\\src\\logs\\2023-07-27.log",
+            "hash": "2e089d12cf2dbfd95a4ba435c8b0da0f9f82cebfa82a436a1bf16476f0910218"
         }
     ],
     "hashType": "sha256"

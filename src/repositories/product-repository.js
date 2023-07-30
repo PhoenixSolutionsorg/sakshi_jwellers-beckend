@@ -38,7 +38,10 @@ export default {
     async getAllProducts(request){
         try{
             const {limit,offset} = request?.body;
-            const allProducts = await product.aggregate({$sort:{name : -1}});
+            const allProducts = await product.aggregate([
+                {$match : {name : 'Silver necklec'}},    
+                {$sort:{name : 1}}
+            ]);
             console.log(allProducts);
             return allProducts;
         }catch(error){

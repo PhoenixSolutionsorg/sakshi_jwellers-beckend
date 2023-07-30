@@ -14,6 +14,13 @@ router.post('/creat-product',
 );
 router.post('/view-product',
     productControllers.viewProduct
+);
+router.get('/all-products',
+    productControllers.getAllProduct
 )
+router.post('/update-product',
+    productControllers.updateProduct
+)
+
 
 export default router;

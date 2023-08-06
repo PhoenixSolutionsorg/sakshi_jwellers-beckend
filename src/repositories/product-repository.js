@@ -37,10 +37,12 @@ export default {
     },
     async getAllProducts(request){
         try{
-            const {limit,offset} = request?.body;
+            const {limit,offset,search,name} = request?.body;
             const allProducts = await product.aggregate([
-                {$match : {name : 'Silver necklec'}},    
-                {$sort:{name : 1}}
+                {$skip : offset},
+                {$limit:limit},
+                {$sort:{name : name && -1}},
+                {$match : {name : name}},    
             ]);
             console.log(allProducts);
             return allProducts;
@@ -57,7 +59,7 @@ export default {
             const description = request.body?.description || productData?.description;
             const quantity = request.body?.quantity || productData?.quantity;
             const metalId = request.body?.metalId || productData?.metalId;
-            const updatedProduct = await product?.findOneAndUpdate({name : request.body?.productName},{name,description,quantity,metalId});
+            const updatedProduct = await product?.findOneAndUpdate({_id : request.body?.id},{name,description,quantity,metalId});
             console.log(updatedProduct);
             if(updatedProduct?.effectedRow)
                 return updatedProduct;
@@ -68,4 +70,4 @@ export default {
             throw error;
         }
     }
-}
+}  

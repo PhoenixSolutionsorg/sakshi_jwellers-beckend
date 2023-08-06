@@ -3,6 +3,7 @@ import account from './account-routes';
 import media from './media-routes';
 import product from './product-routes'
 import metal from './metal-routes';
+import category from './cateogry-route';
 
 const router = Router();
 const register = (app)=>{
@@ -12,6 +13,7 @@ const register = (app)=>{
         media,
         product,
         metal,
+        category,
         
     ])
 }

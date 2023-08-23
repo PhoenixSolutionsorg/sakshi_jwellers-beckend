@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "C:\\Users\\HP\\Desktop\\Mausam\\Me_Jweller_Backend\\src\\logs\\.3eb2396e31781ddda1632c7909e8b9e197a894c5-audit.json",
+    "files": [
+        {
+            "date": 1692809722158,
+            "name": "C:\\Users\\HP\\Desktop\\Mausam\\Me_Jweller_Backend\\src\\logs\\2023-08-23.log",
+            "hash": "52037a49b03a3257a1ce8ca29a2a5a57d20abb6af128a2958ad9a3568d554826"
+        }
+    ],
+    "hashType": "sha256"
+}

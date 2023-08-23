@@ -5,11 +5,11 @@ const validateRequest = (option) => async(request,response,next)=>{
             ...request.body,
             ...request.params,
             ...request.query
-
         });
         next();
     }catch(error){
-        const errors = error;
+        console.log(error);
+        const errors = [];
         if(errors.isJoi){
             error.details.forEach((errorData)=>{
                 const errorObject = {

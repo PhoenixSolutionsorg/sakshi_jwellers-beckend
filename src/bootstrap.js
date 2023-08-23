@@ -1,7 +1,8 @@
 import bodyParser from "body-parser";
 import express from 'express';
 import models from './models';
-import routes from './routes'
+import routes from './routes';
+import cors from "cors";
 export default class Bootstrap{
     constructor(app){
         this.app=app;
@@ -12,6 +13,7 @@ export default class Bootstrap{
     }
     middleware(){
         const {app}=this;
+        app.use(cors());
         app.use(bodyParser.urlencoded({extended:true}));
         app.use(bodyParser.json({limit:'500mb'}));
         app.use('/assets',express.static(`${__dirname}/uploads/images`));

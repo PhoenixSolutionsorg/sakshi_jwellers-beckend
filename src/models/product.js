@@ -15,6 +15,10 @@ const productSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref : 'metal'
     },
+    categoryId : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'category'
+    },
     quantity: {
         type: Number,
         trim: true,

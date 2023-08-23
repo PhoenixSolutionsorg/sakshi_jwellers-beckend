@@ -8,5 +8,7 @@ export default {
     },
     app : {
         mediaStorage : 'local'
-    }
+    },
+    jwtSecret : process.env.JWT_SECRET,
+    jwtExpiry : process.env.JWT_EXPIRY
 }

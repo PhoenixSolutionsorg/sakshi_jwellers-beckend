@@ -1,6 +1,16 @@
 import category from '../models/category';
 import logger from '../services/logger';
 export default{
+    async createBulkCategories(request){
+        try{
+            const {categories} = request.body;
+            const result = await category.insertMany(categories);
+            return result;
+        }catch(error){
+            logger.error(error);
+            console.log(error);
+        }
+    },
     async createCategory(request){
         try{
             const {name} = request.body;
@@ -29,25 +39,34 @@ export default{
         try{
             const {limit,offset,name,search} = request?.body;
             const result = await category.aggregate([
-                {$skip:offset},
-                {$limit : limit},
-                {$sort : {name : name&& -1}},
-                {$match : {name : search}}
+                {$skip:offset || 0},
+                {$limit : limit || 100},
+                {$sort : {name : name|| -1}},
             ]);
             console.log(result);
+            return result;
         }catch(error){
             logger.error(error);
-            console.log(error);
         }
     },
     async updateCategory(request){
         try{
             const {id,name} = request.body;
             const result = await category.findByIdAndUpdate({_id:id},{name});
-            console.log(result);
+            return result;
         }catch(error){
             logger.error(error);
-            console.log(error);
+        }
+    },
+    async deleteCategory(request){
+        try{
+            const {name,id} = request.body;
+            const result = await category.findOneAndDelete({_id : id,name});
+            console.log(result);
+            return result;
+        }catch(error){
+            logger.error(error);
+            throw error;
         }
     }
 }

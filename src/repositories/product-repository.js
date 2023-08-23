@@ -44,10 +44,8 @@ export default {
                 {$sort:{name : name && -1}},
                 {$match : {name : name}},    
             ]);
-            console.log(allProducts);
             return allProducts;
         }catch(error){
-            console.log(error);
             logger.error(error);
             throw error;
         }
@@ -60,12 +58,10 @@ export default {
             const quantity = request.body?.quantity || productData?.quantity;
             const metalId = request.body?.metalId || productData?.metalId;
             const updatedProduct = await product?.findOneAndUpdate({_id : request.body?.id},{name,description,quantity,metalId});
-            console.log(updatedProduct);
             if(updatedProduct?.effectedRow)
                 return updatedProduct;
             return false;
         }catch(error){
-            console.log(error);
             logger.error(error);
             throw error;
         }

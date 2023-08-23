@@ -29,11 +29,6 @@
             trim : true,
             unique : true
         },
-        address : {
-            type : String,
-            required : true,
-            trim : true
-        },
         date_of_birth : {
             type : String,
             required : true,

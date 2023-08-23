@@ -1,4 +1,4 @@
-import httpStatus, { BAD_REQUEST } from "http-status";
+import httpStatus from "http-status";
 import repositories from "../repositories";
 const { accountRepository } = repositories;
 export default {
@@ -17,6 +17,7 @@ export default {
     async signIn(request, response, next) {
         try {
             const { body } = request;
+            console.log(body);
             const result = await accountRepository.signIn(body);
             if (result) {
                 return response.status(httpStatus.OK).json({

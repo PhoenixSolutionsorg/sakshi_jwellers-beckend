@@ -39,10 +39,11 @@ export default {
     async signIn({ email, password }) {
         try {
             const isUser = await user.findOne({ email });
+            console.log(">>>>>>",isUser);
             if (isUser?.email) {
                 const checkPassword = await bcrypt.compare(isUser.password, password);
                 const payload = {
-                    name: isUser?.name,
+                    name: isUser?.first_name,
                     email: isUser?.email,
                     password: isUser?.password
                 }
@@ -53,7 +54,7 @@ export default {
                 return isUser;
             }
             else
-                throw new Error('User not found');
+                return false;
         } catch (error) {
             console.log(error);
             throw error;
